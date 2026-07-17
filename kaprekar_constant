@@ -1,0 +1,16 @@
+def kaprekar_constant(num):
+    count = 0
+
+    while num != 6174:
+        num_str = str(num).zfill(4)  
+        desc = int("".join(sorted(num_str, reverse=True)))
+        asc = int("".join(sorted(num_str)))
+        num = desc - asc
+        count += 1
+
+        print(f"Step {count}: {desc} - {asc} = {str(num).zfill(4)}")
+
+    print(f"\nKaprekar Constant (6174) reached in {count} steps.")
+
+number = int(input("Enter a 4-digit number: "))
+kaprekar_constant(number)
